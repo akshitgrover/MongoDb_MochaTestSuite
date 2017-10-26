@@ -1,5 +1,16 @@
 var mongoose = require('mongoose');
 
+var admin = mongoose.Schema({
+
+	username:{
+		type:'string',
+	},
+	password:{
+		type:'string'
+	}
+
+});
+
 var users = mongoose.Schema({
 
 	name:{
@@ -19,5 +30,6 @@ before(()=>{
 
 module.exports = {
 	users:mongoose.model('users',users),
+	admins:mongoose.model('admins',admin),
 	mongoose
 }

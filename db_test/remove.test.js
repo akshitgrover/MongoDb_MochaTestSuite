@@ -52,7 +52,7 @@ describe('Remove Functions:',()=>{
 
 	it('Should Implement Class Based FindById And Remove Method.',(done)=>{
 
-		users.findByIdAndRemove({_id:user._id}).then((result)=>{
+		users.findByIdAndRemove(user._id).then((result)=>{
 			users.findOne({_id:user._id}).then((result)=>{
 				expect(result).toBeFalsy();
 				done();
