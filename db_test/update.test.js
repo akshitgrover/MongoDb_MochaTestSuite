@@ -11,7 +11,7 @@ describe('Update Function:',()=>{
 		
 		admins.remove({}).then((result)=>{
 
-			admins.create([{username:"akshit",password:"1516"},{username:"Deathadder",password:"123"}]).then((result)=>{
+			admins.create([{username:"akshit",password:"1516HUDA"},{username:"Deathadder",password:"123HUDA"}]).then((result)=>{
 				id_1 = result[0]._id;
 				id_2 = result[1]._id;
 				done();
@@ -28,11 +28,11 @@ describe('Update Function:',()=>{
 	it('Should Implement Set And Save Method.',(done)=>{
 
 		admins.findOne({_id:id_2}).then((result)=>{
-			result.set({password:"1516"});
+			result.set({password:"1516HUDA"});
 			return result.save();
 		}).then((result)=>{
 			admins.findOne({_id:id_2}).then((result)=>{
-				expect(result.password).toBe("1516");
+				expect(result.password).toBe("1516HUDA");
 				done();
 			}).catch((err)=>{
 				done(err);
@@ -49,7 +49,7 @@ describe('Update Function:',()=>{
 			return result.update({username:"akshitgrover"});
 		}).then((result)=>{
 			admins.findOne({username:"akshitgrover"}).then((result)=>{
-				expect(result.password).toBe("1516");
+				expect(result.password).toBe("1516HUDA");
 				done();
 			}).catch((err)=>{
 				done(err);
@@ -62,7 +62,7 @@ describe('Update Function:',()=>{
 
 	it("Should Implement Class Based Update Method.",(done)=>{
 
-		admins.update({_id:id_2},{password:"1516"}).then((result)=>{
+		admins.update({_id:id_2},{password:"1516HUDA"}).then((result)=>{
 			expect(result.n).toBe(1);
 			done();
 		}).catch((err)=>{
@@ -88,9 +88,9 @@ describe('Update Function:',()=>{
 
 	it("Should Implement Class Based FindOne And Remove Method.",(done)=>{
 
-		admins.findOneAndUpdate({username:"Deathadder"},{password:"1516"}).then((result)=>{
+		admins.findOneAndUpdate({username:"Deathadder"},{password:"1516HUDA"}).then((result)=>{
 			admins.findOne({username:"Deathadder"}).then((result)=>{
-				expect(result.password).toBe("1516");
+				expect(result.password).toBe("1516HUDA");
 				done();
 			}).catch((err)=>{
 				done(err);

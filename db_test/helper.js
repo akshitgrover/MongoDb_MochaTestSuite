@@ -4,9 +4,17 @@ var admin = mongoose.Schema({
 
 	username:{
 		type:'string',
+		required:[true,"Username Is Required."],
 	},
 	password:{
-		type:'string'
+		type:'string',
+		required:[true,"Password Is Required."],
+		validate:{
+			validator:function(){
+				return this.password.length > 6;
+			},
+			message:'Password Should Be Of Greater Than 6 Characters Of Length.'
+		}
 	}
 
 });
